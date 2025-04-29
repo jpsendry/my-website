@@ -1,0 +1,45 @@
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #e9d4c2;
+}
+
+h1, h2, h3 {
+  font-weight: 700;
+}
+
+.bg-primary {
+  background-color: #b48020
+}
+
+.bg-success {
+  background-color: #0b8697
+}
+
+.bg-warning-subtle {
+  background-color: blue
+}
+
+.btn-light {
+  color: #2c7da0;
+}
+
+.movement-heading {
+  color: #000000;
+  font-weight: 700;
+}
+
+.custom-btn {
+  background-color: #b48020;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  transition: background-color 0.3s ease;
+}
+
+.custom-btn:hover {
+  background-color: #0b8697;
+  color: #fff;
+}
+footer {
+  font-size: 0.
