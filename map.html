@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Map of Turkey - Turkey’s Water Crisis</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="map.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>
+    #map {
+      height: 500px;
+      width: 100%;
+      border: 4px solid #0b8697;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      margin: 20px auto;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-success fixed-top shadow">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">Water Crisis: Turkey</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="causes.html">Causes</a></li>
+          <li class="nav-item"><a class="nav-link" href="impact.html">Impact</a></li>
+          <li class="nav-item"><a class="nav-link" href="solutions.html">Solutions</a></li>
+          <li class="nav-item"><a class="nav-link active" href="map.html">Map</a></li>
+          <li class="nav-item"><a class="nav-link" href="resources.html">Resources</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <br><br>
+
+  <div id="map"></div>
+
+  <div class="container mt-4 mb-5">
+    <div class="center-button">
+      <a href="https://worldpopulationreview.com/countries/turkey" class="btn custom-btn">Turkey On-The-Clock</a>
+    </div>
+
+    <br>
+
+    <div>
+      <div style="float: left; width: 50%">
+        <h2 class="text-center" id="h2">Top Regions to Consider</h2>
+        <br>
+        <h4 id="h4">Southeastern Anatolia Region (Şanlıurfa, Malatya, Diyarbakır, etc.)</h4>
+        <p>The farming gem of Turkey. The severe drought and soils malnourished nutrients have devastated agriculture for the farmers here.</p>
+        <h4 id="h4">Central Anatolia Region (Ankara, Aksaray, Yozgat, etc.)</h4>
+        <p>This region heavily relies on steady rainfall to keep up with its large production of barley and wheat. The inconsistent irrigation during the drought has only made matters worse for locals.</p>
+        <h4 id="h4">Istanbul (Turkish City)</h4>
+        <p>The population within Istanbul has almost 5 times more people than Turkey’s next densest city; Turkey's Capital, Ankara. The current dam levels being at an all-time low, combined with rapid growth and infrastructure mismanagement, has led to a scarcity of water within this region for many locals and tourists.</p>
+      </div>
+
+      <div class="col-md-4 text-center" style="float: right; width: 50%">
+        <img src="Turkey Population.png" alt="Turkey 2025 Population" style="max-width:100%; height:auto; border: 1px solid #ccc; padding: 5px;">
+      </div>
+
+      <div class="col-md-4 text-center" style="text-align:center; margin-top: 30px; float: right; width: 50%">
+        <img src="Turkey Regions.jpg" alt="Turkey Regions Map" style="max-width:100%; height:auto;">
+      </div>
+    </div>
+  </div>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    // Center the map on Turkey
+    var map = L.map('map').setView([39.0, 35.0], 6);
+
+    // Add free OpenStreetMap tiles
+    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+      attribution: 'Tiles &copy; Esri &mdash; Esri, HERE, Garmin, FAO, NOAA, USGS',
+      maxZoom: 16
+    }).addTo(map);
+
+    // Add the Light Gray Labels overlay
+    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Reference/MapServer/tile/{z}/{y}/{x}', {
+      attribution: '',
+      maxZoom: 16,
+      pane: 'overlayPane'
+    }).addTo(map);
+
+    // Add a marker in Ankara
+    L.marker([39.9334, 32.8597]).addTo(map)
+      .bindPopup("<b>Ankara</b><br>Capital of Turkey.")
+      .openPopup();
+  </script>
+
+</body>
+</html>
